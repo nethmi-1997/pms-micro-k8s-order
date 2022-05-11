@@ -93,7 +93,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<repository>shamikhhameed/order-service</repository>
+					<repository>nethmi1234/order-service</repository>
 					<tag>${project.version}</tag>
 					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
 				</configuration>
