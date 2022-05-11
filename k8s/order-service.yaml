@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: order-service-app
-        image: shamikhhameed/order-service:0.0.1
+        image: nethmi1234/order-service:0.0.1
         imagePullPolicy: Always
         ports:
           - containerPort: 9004
