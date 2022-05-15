@@ -24,7 +24,7 @@ jobs:
           server-password: MAVEN_PASSWORD
           
       - name: Building and Pushing user-service
-        run: mvn package dockerfile:push --file pizza-ms-msa-auth-backend/pom.xml
+        run: mvn package dockerfile:push --file pizza-ms-msa-order-backend/pom.xml
         env:
           MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
