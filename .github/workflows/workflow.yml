@@ -34,24 +34,7 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Building and Pushing cloud-config-server
-        run: mvn package dockerfile:push --file cloud-config-server/pom.xml
-        env:
-          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Building and Pushing api-gateway
-        run: mvn package dockerfile:push --file api-gateway/pom.xml
-        env:
-          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Building and Pushing service-registry
-        run: mvn package dockerfile:push --file service-registry/pom.xml
-        env:
-          MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
+     
   Deploy:
   
     needs: build
