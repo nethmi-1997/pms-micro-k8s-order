@@ -35,10 +35,28 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: order-service-app
-          #environment_name: Birdsclassifierapi-env
-          #version_label: "birds-classifier-api-${{ steps.format-time.outputs.replaced }}"
+          cluster-name: demo-cluster-1
           region: us-west-1
-          #deployment_package: deploy.zip
-
+          
+      - name: Deploy to EKS cluster  
+        uses: Azure/k8s-deploy@v1
+        with:
+         manifests: |
+          k8s/deployment.yaml
+          
+      - name: Run Kube-Bench to check cluster config
+        continue-on-error: true
+        run: |
+         kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job-aks.yaml
+         sleep 30s
+         kubectl logs job.batch/kube-bench
+         kubectl delete job.batch/kube-bench
+       
+        
+   
+ 
+          
+      
+        
      
   
