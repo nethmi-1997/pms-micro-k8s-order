@@ -30,7 +30,7 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           
       - name: Deploy to EKS cluster
-        uses: actions/deploy@v14
+        uses: Azure/aks-set-context@v1
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
