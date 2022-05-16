@@ -68,7 +68,13 @@ jobs:
       
          
       - name: Update kube config
-        run: aws eks update-kubeconfig --name demo-cluster-1 --region us-east-2 --role-arn arn:aws:iam::823309086506:root
+        run:
+           aws eks list-clusters
+           aws eks update-kubeconfig --name demo-cluster-1 --region us-east-2 --role-arn arn:aws:iam::823309086506:root
+           #aws eks list-clusters | jq '.clusters[]' | while read c; do
+             #aws eks update-kubeconfig --name "$c"
+           #done; 
+            
 
       - name: Deploy image to Amazon EKS
         run: |
