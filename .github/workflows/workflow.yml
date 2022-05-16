@@ -66,6 +66,7 @@ jobs:
         ECR_REPOSITORY: myrepo1
         IMAGE_TAG: ${{ github.sha }}
       run: |
+        cd pizza-ms-msa-order-backend
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
         docker push -a $ECR_REGISTRY/$ECR_REPOSITORY
     - name: Update kube config
