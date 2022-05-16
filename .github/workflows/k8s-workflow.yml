@@ -68,7 +68,7 @@ jobs:
       
          
       - name: Update kube config
-        run: aws eks update-kubeconfig --name myrepo1 --region us-east-2
+        run: aws eks update-kubeconfig --name demo-cluster-1 --region us-east-2
 
       - name: Deploy image to Amazon EKS
         run: |
