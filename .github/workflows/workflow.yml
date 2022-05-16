@@ -28,6 +28,17 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          
+      - name: Deploy to EKS cluster
+        uses: actions/deploy@v14
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: order-service-app
+          #environment_name: Birdsclassifierapi-env
+          #version_label: "birds-classifier-api-${{ steps.format-time.outputs.replaced }}"
+          region: us-west-1
+          #deployment_package: deploy.zip
 
      
   
