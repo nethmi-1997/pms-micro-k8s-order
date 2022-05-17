@@ -5,6 +5,6 @@ metadata:
   namespace: kube-system 
 data: 
   mapUsers: | 
-    - userarn: arn:aws:iam::823309086506:root
-      username: root
+    - userarn: arn:aws:iam::823309086506:role/eksClusterRole
+      username: eksClusterRole
       
